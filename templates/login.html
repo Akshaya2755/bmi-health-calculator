@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0f172a, #1e3a8a);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-container {
+            background: rgba(30, 41, 59, 0.9);
+            padding: 35px;
+            border-radius: 15px;
+            width: 320px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .login-container h2 {
+            color: #fff;
+            margin-bottom: 25px;
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 18px;
+        }
+
+        .input-group input {
+            width: 80%;
+            padding: 12px 38px;
+            border-radius: 8px;
+            border: none;
+            outline: none;
+            background: #334155;
+            color: white;
+            font-size: 14px;
+        }
+
+        .input-group input::placeholder {
+            color: #cbd5e1;
+        }
+
+        .input-group i {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 10px;
+            padding: 11px;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(to right, #22c55e, #16a34a);
+            color: white;
+            font-size: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.03);
+        }
+
+        .link {
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .link a {
+            color: #38bdf8;
+            text-decoration: none;
+        }
+
+        .link a:hover {
+            text-decoration: underline;
+        }
+
+<a href="{{ url_for('home') }}" style="
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: #38bdf8;
+    text-decoration: none;
+    font-size: 14px;
+">
+    ⬅ Back to Home
+</a>
+    </style>
+</head>
+
+<body>
+
+<div class="login-container">
+    <h2>User Login</h2>
+
+    <form method="POST">
+
+        <!-- Username -->
+        <div class="input-group">
+            <i class="fa fa-user"></i>
+            <input type="text" name="username" placeholder="Username" required autocomplete="off">
+        </div>
+
+        <!-- Password -->
+        <div class="input-group">
+            <i class="fa fa-lock"></i>
+            <input type="password" id="password" name="password" placeholder="Password" required autocomplete="off">
+</div>
+            
+        <button type="submit">Login</button>
+
+        <div class="link">
+            Don't have an account? <a href="{{ url_for('register') }}">Register</a>
+        </div>
+
+    </form>
+</div>
+
+<script>
+function togglePassword() {
+    var x = document.getElementById("password");
+    if (x.type === "password") {
+        x.type = "text";
+    } else {
+        x.type = "password";
+    }
+}
+</script>
+
+</body>
+</html>

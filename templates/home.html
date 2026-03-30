@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BMI Health Calculator</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: #0f172a;
+            color: white;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            background: #020617;
+            position: sticky;
+            top: 0;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: #38bdf8;
+        }
+
+        .nav-links a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+
+        .nav-right a {
+            margin-left: 15px;
+            padding: 8px 15px;
+            border-radius: 6px;
+            text-decoration: none;
+        }
+
+        .login {
+            border: 1px solid #38bdf8;
+            color: #38bdf8;
+        }
+
+        .register {
+            background: #38bdf8;
+            color: black;
+        }
+
+        /* HERO */
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .hero h1 {
+            font-size: 40px;
+        }
+
+        .hero p {
+            color: #cbd5e1;
+            margin-top: 10px;
+        }
+
+        .hero button {
+            margin-top: 20px;
+            padding: 12px 25px;
+            background: #22c55e;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* SECTION */
+        .section {
+            padding: 60px 40px;
+        }
+
+        .section h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .about {
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+            color: #cbd5e1;
+        }
+
+        /* TABLE */
+        table {
+            width: 60%;
+            margin: auto;
+            border-collapse: collapse;
+            background: #1e293b;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #334155;
+            text-align: center;
+        }
+
+        th {
+            background: #334155;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #020617;
+            margin-top: 40px;
+            color: #94a3b8;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <div class="logo">💙 BMI Health</div>
+
+    <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#table">BMI Table</a>
+    </div>
+
+    <div class="nav-right">
+        <a href="{{ url_for('login') }}" class="login">Login</a>
+        <a href="{{ url_for('register') }}" class="register">Register</a>
+    </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+    <h1>Track Your Health with BMI</h1>
+    <p>Simple, fast and effective way to check your body health</p>
+
+    <a href="{{ url_for('register') }}">
+        <button>Get Started</button>
+    </a>
+</div>
+
+<!-- ABOUT -->
+<div class="section" id="about">
+    <h2>About BMI</h2>
+    <div class="about">
+        <p>
+            Body Mass Index (BMI) is a value derived from the weight and height of a person.
+            It is used as a simple method to classify underweight, normal weight, overweight,
+            and obesity in adults.
+        </p>
+        <p>
+            Maintaining a healthy BMI helps reduce the risk of diseases such as heart problems,
+            diabetes, and other health conditions.
+        </p>
+    </div>
+</div>
+
+<!-- BMI TABLE -->
+<div class="section" id="table">
+    <h2>BMI Categories</h2>
+
+    <table>
+        <tr>
+            <th>Category</th>
+            <th>BMI Range</th>
+        </tr>
+        <tr>
+            <td>Underweight</td>
+            <td>Less than 18.5</td>
+        </tr>
+        <tr>
+            <td>Normal</td>
+            <td>18.5 - 24.9</td>
+        </tr>
+        <tr>
+            <td>Overweight</td>
+            <td>25 - 29.9</td>
+        </tr>
+        <tr>
+            <td>Obese</td>
+            <td>30 and above</td>
+        </tr>
+    </table>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    © 2026 BMI Health Calculator | Designed for Better Living
+</footer>
+
+</body>
+</html>

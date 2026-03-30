@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Profile</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI';
+            background: linear-gradient(135deg, #0f172a, #1e3a8a);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: rgba(15, 23, 42, 0.9);
+            padding: 30px;
+            border-radius: 12px;
+            width: 350px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #38bdf8;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border: none;
+            background: #334155;
+            color: white;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #22c55e;
+            border: none;
+            border-radius: 6px;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Edit Profile</h2>
+
+    <form method="POST">
+
+        <input type="text" name="first_name" value="{{ user.first_name }}">
+        <input type="text" name="last_name" value="{{ user.last_name }}">
+        <input type="email" name="email" value="{{ user.email }}">
+
+        <button type="submit">Update</button>
+
+    </form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI';
+            background: #0f172a;
+            color: white;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 30px;
+            background: #020617;
+        }
+
+        .logo {
+            color: #38bdf8;
+            font-weight: bold;
+        }
+
+        .nav-links a {
+            color: white;
+            margin-left: 20px;
+            text-decoration: none;
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .card {
+            background: #1e293b;
+            padding: 30px;
+            border-radius: 12px;
+            width: 350px;
+            margin: auto;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #cbd5e1;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 15px;
+            background: #22c55e;
+            color: white;
+            border-radius: 6px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="logo">💙 BMI Health</div>
+
+    <div class="nav-links">
+        <a href="{{ url_for('dashboard') }}">Dashboard</a>
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="card">
+        <h2>User Profile</h2>
+
+        <p><b>Name:</b> {{ user.first_name }} {{ user.last_name }}</p>
+        <p><b>Email:</b> {{ user.email }}</p>
+        <p><b>Username:</b> {{ user.username }}</p>
+
+        <a href="{{ url_for('edit_profile') }}" class="btn">Edit Profile</a>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+bmi-health-calculator
+│
+├── app.py
+├── bmi_calculator.py
+├── history.json
+├── ai_suggestions.py
+├── requirements.txt
+│
+├── templates
+│   └── index.html
+│
+├── static
+│   └── style.css
+│
+├── tests
+│   └── test_bmi.py
+│
+├── Dockerfile
+│
+└── .github
+    └── workflows
+        └── ci.yml

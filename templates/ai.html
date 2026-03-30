@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Chat</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #0f172a;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .chat-box {
+            width: 500px;
+            background: #1e293b;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        #chat {
+            height: 300px;
+            overflow-y: auto;
+            background: #020617;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        input {
+            width: 75%;
+            padding: 10px;
+        }
+
+        button {
+            padding: 10px;
+            background: green;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="chat-box">
+    <h2>AI Assistant</h2>
+
+    <div id="chat"></div>
+
+    <input type="text" id="message" placeholder="Ask anything...">
+    <button onclick="sendMessage()">Send</button>
+</div>
+
+<script>
+function sendMessage() {
+    let msg = document.getElementById("message").value;
+
+    fetch("/ai_chat", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: "message=" + encodeURIComponent(msg)
+    })
+    .then(res => res.json())
+    .then(data => {
+        document.getElementById("chat").innerHTML +=
+            "<p><b>You:</b> " + msg + "</p>" +
+            "<p><b>AI:</b> " + data.reply + "</p>";
+
+        document.getElementById("message").value = "";
+    });
+}
+</script>
+
+</body>
+</html>

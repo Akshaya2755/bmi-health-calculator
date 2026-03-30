@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BMI History</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI';
+            background: #0f172a;
+            color: white;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 30px;
+            background: #020617;
+        }
+
+        .logo {
+            color: #38bdf8;
+            font-weight: bold;
+        }
+
+        .nav-links a {
+            color: white;
+            margin-left: 20px;
+            text-decoration: none;
+        }
+
+        .container {
+            padding: 40px;
+            text-align: center;
+        }
+
+        table {
+            width: 80%;
+            margin: auto;
+            border-collapse: collapse;
+            background: #1e293b;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #334155;
+        }
+
+        th {
+            background: #334155;
+        }
+
+        tr:hover {
+            background: #475569;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="logo">💙 BMI Health</div>
+
+    <div class="nav-links">
+        <a href="{{ url_for('dashboard') }}">Dashboard</a>
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </div>
+</div>
+
+<div class="container">
+    <h2>Your BMI History</h2>
+
+    <table>
+        <tr>
+            <th>Height</th>
+            <th>Weight</th>
+            <th>BMI</th>
+            <th>Category</th>
+            <th>Date</th>
+        </tr>
+
+        {% for r in records %}
+        <tr>
+            <td>{{ r.height }}</td>
+            <td>{{ r.weight }}</td>
+            <td>{{ r.bmi }}</td>
+            <td>{{ r.category }}</td>
+            <td>{{ r.date.strftime('%d-%m-%Y') }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</div>
+
+</body>
+</html>
